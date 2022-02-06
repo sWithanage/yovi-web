@@ -2,10 +2,7 @@
 import styles from '../../styles/Home.module.css'
 import Head from "next/head";
 
-export default function Product({productId, title}) {
-
-    let data = JSON.parse(title);
-    console.log(title);
+export default function Product({data}) {
     return (
         <div className={styles.container}>
             <Head>
@@ -23,33 +20,8 @@ export default function Product({productId, title}) {
     )
 }
 
-export async function getStaticProps({ params = {}} = {}) {
-    const res = await fetch(`https://reqres.in/api/users/`+params.productId)
+export async function getServerSideProps({params }) {
+    const res = await fetch(`https://reqres.in/api/users/`+params?.productId)
     const data = await res.json()
-    return {
-        props: {
-            productId: params.productId,
-            title: JSON.stringify(data)
-        }
-    }
-}
-
-export async function getStaticPaths({ params = {}} = {}) {
-
-
-    const paths = [{
-        params: {
-            productId : `1`
-        }
-    },
-        {
-            params: {
-                productId : `2`
-            }
-        }];
-
-    return {
-        paths,
-        fallback: false
-    }
+    return { props: { data }}
 }
