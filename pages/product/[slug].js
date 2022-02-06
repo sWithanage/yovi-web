@@ -2,30 +2,38 @@ import styles from '../../styles/Home.module.css'
 import Head from "next/head";
 import Image from 'next/image';
 
+
+import dbConnect from "../../utils/dbConnect";
+import Note from '../../models/Products';
+
+dbConnect();
+
 const myLoader = ({ src, width, quality }) => {
     return `https://reqres.in/img/faces/2-image.jpg`
 }
 
 export default function Product({data}) {
-    console.log(data.data?.avatar);
     return (
         <div className={styles.container}>
             <Head>
-                <title>{data.data.first_name} {data.data.last_name}  - YOVI Clothing</title>
-                <meta name="description" content={data.support.text} />
+                <title>{data.name} {data.image}  - YOVI Clothing</title>
+                <meta name="description" content={data.image} />
             </Head>
 
             <main className={styles.main}>
-                <h1 className={styles.title}>
-                    Hello {data.data.first_name}
+                <h1 className={styles.name}>
+                    Name:  {data.name}
+                </h1>
+                <h1 className={styles.name}>
+                    Image {data.image}
                 </h1>
 
-                <Image
-                    src={data.data?.avatar}
-                    alt="Picture of the author"
-                    width={200}
-                    height={200}
-                />
+                {/*<Image*/}
+                {/*    src={data.title}*/}
+                {/*    alt="Picture of the author"*/}
+                {/*    width={200}*/}
+                {/*    height={200}*/}
+                {/*/>*/}
 
             </main>
         </div>
@@ -33,10 +41,9 @@ export default function Product({data}) {
 }
 
 export async function getServerSideProps({params}) {
-    const res = await fetch(`https://reqres.in/api/users/`+params?.productId)
-    const data = await res.json()
-    console.log(data);
-    if(data?.data){
+    const notes = await Note.findOne({name: params.slug});
+    const data = JSON.parse(JSON.stringify(notes));
+    if(notes?.name){
         return { props: { data }}
     } else {
         return { props: { "data": {
