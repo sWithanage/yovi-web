@@ -6,22 +6,32 @@ const myLoader = ({ src, width, quality }) => {
     return `https://reqres.in/img/faces/2-image.jpg`
 }
 
-export default function Product({data}) {
-    console.log(data.data?.avatar);
+export default function Product({data,params}) {
     return (
         <div className={styles.container}>
             <Head>
-                <title>{data.data[0].name} {data.data[0].name}  - YOVI Clothing</title>
-                <meta name="description" content={data.data[0].name} />
+                <title>{data.data[params.productId].name} {data.data[params.productId].name}  - YOVI Clothing</title>
+                <meta name="description" content={data.data[params.productId].name} />
+                <meta name="description" content={data.data[params.productId].name}/>
+                <meta property="og:type" content="website"/>
+                <meta property="og:url" content="https://yovi.vercel.app/productVege/1"/>
+                <meta property="og:title" content={data.data[params.productId].name}/>
+                <meta property="og:description" content={data.data[params.productId].name}/>
+                <meta property="og:image" content={data.data[params.productId].imageUrl}/>
+                <meta property="twitter:card" content="summary_large_image"/>
+                <meta property="twitter:url" content="https://yovi.vercel.app/productVege/1"/>
+                <meta property="twitter:title" content={data.data[params.productId].name}/>
+                <meta property="twitter:description" content={data.data[params.productId].name}/>
+                <meta property="twitter:image" content={data.data[params.productId].imageUrl}/>
             </Head>
 
             <main className={styles.main}>
                 <h1 className={styles.title}>
-                    Hello {data.data[0].name}
+                    Hello {data.data[params.productId].name}
                 </h1>
 
                 <Image
-                    src={data.data[0].imageUrl}
+                    src={data.data[params.productId].imageUrl}
                     alt="Picture of the author"
                     width={200}
                     height={200}
@@ -34,10 +44,9 @@ export default function Product({data}) {
 
 export async function getServerSideProps({params}) {
     const res = await fetch(`https://sun-shinevege-mart.herokuapp.com/api/item`)
-    const data = await res.json()
-    console.log(data);
+    const data = await res.json();
     if(data?.data){
-        return { props: { data }}
+        return { props: { data , params}}
     } else {
         return { props: { "data": {
                     "data": {
