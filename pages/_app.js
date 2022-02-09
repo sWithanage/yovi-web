@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import styles from "../styles/Home.module.css";
 import NextNProgress from "nextjs-progressbar";
+import 'antd/dist/antd.css';
 
 function MyApp({ Component, pageProps }) {
   return (

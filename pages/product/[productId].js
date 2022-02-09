@@ -1,11 +1,27 @@
 import styles from '../../styles/Home.module.css'
 import Head from "next/head";
-import Image from 'next/image';
+import { Image } from 'antd';
 import Link from 'next/link';
 import SeoContent from "../../utils/SeoContent";
+import { Carousel } from 'antd';
+import { Card } from 'antd';
+const { Meta } = Card;
 
 function Product({props}) {
     const data = JSON.parse(props.data);
+    function onChange(a) {
+        console.log(a);
+    }
+
+    const contentStyle = {
+        height: '350px',
+        color: '#fff',
+        lineHeight: '160px',
+        textAlign: 'center',
+        background: '#364d79',
+    };
+
+
     return (
         <div className={styles.container}>
             <Head>
@@ -18,6 +34,49 @@ function Product({props}) {
             </Head>
 
             <main className={styles.main}>
+
+                <Card
+                    hoverable
+                    style={{ width: 200 }}
+                    cover={<Carousel beforeChange={(a)=>onChange(a)}>
+                        <div>
+                            <img
+                                src={'https://res.cloudinary.com/sunshinevege/image/upload/v1643355101/webstore/gcw5r6tz4zfilc3ezibk.jpg'}
+                                alt="Picture of the author"
+                                width={200}
+                                height={200}
+                            />
+                        </div>
+                        <div>
+                            <img
+                                src={'https://res.cloudinary.com/sunshinevege/image/upload/v1643353185/webstore/sldtmfmw8hwjhpmtr8iv.png'}
+                                alt="Picture of the author"
+                                width={200}
+                                height={200}
+                            />
+                        </div>
+                        <div>
+                            <img
+                                src={'https://res.cloudinary.com/sunshinevege/image/upload/v1643286381/webstore/ropui20nehuur99hizzx.jpg'}
+                                alt="Picture of the author"
+                                width={200}
+                                height={200}
+                            />
+                        </div>
+                        <div>
+                            <img
+                                src={data.data[props.productId].imageUrl}
+                                alt="Picture of the author"
+                                width={200}
+                                height={200}
+                            />
+                        </div>
+                    </Carousel>}
+                >
+                    <Meta title="Europe Street beat" description="www.instagram.com" />
+                </Card>
+
+
                 <h1 className={styles.title}>
                     Hello {data.data[props.productId].name}
                 </h1>
@@ -28,6 +87,7 @@ function Product({props}) {
                     width={200}
                     height={200}
                 />
+
                 <Link href='1'>
                     <a>1</a>
                 </Link>
