@@ -21,7 +21,7 @@ export default function ProductCarousel({ imageList, title, sellingPrice, discou
                                             alt={image?.alt}
                                             width={widthAndHeight}
                                             height={widthAndHeight*1.3}
-                                            imgStyle={{ borderRadius: 10, margin: 5 }}
+                                            style={{borderRadius: 10, margin: 10}}
                                             importance={'auto'}
                                         />
                                     </div>
