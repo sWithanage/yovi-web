@@ -17,11 +17,11 @@ function Shop({props}) {
     const size = useWindowSize();
     let widthOfEach = 200;
     if(size?.width < 480 ) {
-        widthOfEach = Math.round(size.width / 2 - 30);
+        widthOfEach = Math.round(size.width / 2 - 26);
     } else if (size?.width < 740 ) {
-        widthOfEach = Math.round(size.width / 4 - 30);
+        widthOfEach = Math.round(size.width / 4 - 26);
     } else {
-        widthOfEach = Math.round(size.width / 5 - 30);
+        widthOfEach = Math.round(size.width / 5 - 26);
     }
 
     return (
