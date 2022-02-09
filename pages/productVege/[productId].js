@@ -1,29 +1,17 @@
 import styles from '../../styles/Home.module.css'
-import Head from "next/head";
 import Image from 'next/image';
+import {Component} from "react";
+import SeoContent from "../../utils/SeoContent";
 
 const myLoader = ({ src, width, quality }) => {
     return `https://reqres.in/img/faces/2-image.jpg`
 }
 
+
 export default function Product({data,params}) {
     return (
         <div className={styles.container}>
-            <Head>
-                <title>{data.data[params.productId].name} {data.data[params.productId].name}  - YOVI Clothing</title>
-                <meta name="description" content={data.data[params.productId].name} />
-                <meta name="description" content={data.data[params.productId].name}/>
-                <meta property="og:type" content="website"/>
-                <meta property="og:url" content="https://yovi.vercel.app/productVege/1"/>
-                <meta property="og:title" content={data.data[params.productId].name}/>
-                <meta property="og:description" content={data.data[params.productId].name}/>
-                <meta property="og:image" content={data.data[params.productId].imageUrl}/>
-                <meta property="twitter:card" content="summary_large_image"/>
-                <meta property="twitter:url" content="https://yovi.vercel.app/productVege/1"/>
-                <meta property="twitter:title" content={data.data[params.productId].name}/>
-                <meta property="twitter:description" content={data.data[params.productId].name}/>
-                <meta property="twitter:image" content={data.data[params.productId].imageUrl}/>
-            </Head>
+            <SeoContent data={data} params={params}/>
 
             <main className={styles.main}>
                 <h1 className={styles.title}>

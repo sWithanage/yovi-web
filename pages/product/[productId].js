@@ -2,25 +2,14 @@ import styles from '../../styles/Home.module.css'
 import Head from "next/head";
 import Image from 'next/image';
 import Link from 'next/link';
+import SeoContent from "../../utils/SeoContent";
 
 function Product({props}) {
     const data = JSON.parse(props.data);
     return (
         <div className={styles.container}>
             <Head>
-                <title>{data.data[props.productId].name} {data.data[props.productId].name}  - YOVI Clothing</title>
-                <meta name="description" content={data.data[props.productId].name} />
-                <meta name="description" content={data.data[props.productId].name}/>
-                <meta property="og:type" content="website"/>
-                <meta property="og:url" content="https://yovi.vercel.app/productVege/1"/>
-                <meta property="og:title" content={data.data[props.productId].name}/>
-                <meta property="og:description" content={data.data[props.productId].name}/>
-                <meta property="og:image" content={data.data[props.productId].imageUrl}/>
-                <meta property="twitter:card" content="summary_large_image"/>
-                <meta property="twitter:url" content="https://yovi.vercel.app/productVege/1"/>
-                <meta property="twitter:title" content={data.data[props.productId].name}/>
-                <meta property="twitter:description" content={data.data[props.productId].name}/>
-                <meta property="twitter:image" content={data.data[props.productId].imageUrl}/>
+                <SeoContent  title={data.data[props.productId].name} description={data.data[props.productId].name + "Description is here"} image={data.data[props.productId].imageUrl} keywords={'Sasa'}/>
             </Head>
 
             <main className={styles.main}>
