@@ -1,10 +1,7 @@
 import styles from '../../styles/Home.module.css'
 import Head from "next/head";
 import Image from 'next/image';
-
-const myLoader = ({ src, width, quality }) => {
-    return `https://reqres.in/img/faces/2-image.jpg`
-}
+import Link from 'next/link';
 
 function Product({props}) {
     const data = JSON.parse(props.data);
@@ -38,7 +35,33 @@ function Product({props}) {
                     width={200}
                     height={200}
                 />
-
+                <Link href='1'>
+                    <a>1</a>
+                </Link>
+                <Link href='2'>
+                    <a>2</a>
+                </Link>
+                <Link href='3'>
+                    <a>3</a>
+                </Link>
+                <Link href='4'>
+                    <a>4</a>
+                </Link>
+                <Link href='5'>
+                    <a>5</a>
+                </Link>
+                <Link href='6'>
+                    <a>6</a>
+                </Link>
+                <Link href='7'>
+                    <a>7</a>
+                </Link>
+                <Link href='8'>
+                    <a>8</a>
+                </Link>
+                <Link href='9'>
+                    <a>9</a>
+                </Link>
             </main>
         </div>
     )
@@ -54,29 +77,5 @@ Product.getInitialProps = async (ctx) => {
         }
     }
 }
-
-// Product.getInitialProps = async (ctx) => {
-//     const res = await fetch(`https://sun-shinevege-mart.herokuapp.com/api/item`)
-//     const data = await res.json();
-//     const productId = ctx.query.productId;
-//     console.log(data);
-//     if(data?.data){
-//         return { props: { data , productId}}
-//     } else {
-//         return { props: { "data": {
-//                     "data": {
-//                         "id": 1250,
-//                         "email": "Not Found",
-//                         "first_name": "Not Found",
-//                         "last_name": "Not Found",
-//                         "avatar": "https://reqres.in/img/faces/2-image.jpg"
-//                     },
-//                     "support": {
-//                         "url": "https://reqres.in/#support-heading",
-//                         "text": "Not Found. Please find this one."
-//                     }
-//                 } }}
-//     }
-// }
 
 export default Product
