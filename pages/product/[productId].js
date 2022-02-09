@@ -9,7 +9,12 @@ function Product({props}) {
     return (
         <div className={styles.container}>
             <Head>
-                <SeoContent  title={data.data[props.productId].name} description={data.data[props.productId].name + "Description is here"} image={data.data[props.productId].imageUrl} keywords={'Sasa'}/>
+                <SeoContent
+                    title={data.data[props.productId].name}
+                    description={data.data[props.productId].name + "Description is here"}
+                    image={data.data[props.productId].imageUrl}
+                    keywords={'Sasa'}
+                />
             </Head>
 
             <main className={styles.main}>
