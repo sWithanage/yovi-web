@@ -35,46 +35,48 @@ function Product({props}) {
 
             <main className={styles.main}>
 
-                <Card
-                    hoverable
-                    style={{ width: 200 }}
-                    cover={<Carousel beforeChange={(a)=>onChange(a)}>
-                        <div>
-                            <img
-                                src={'https://res.cloudinary.com/sunshinevege/image/upload/v1643355101/webstore/gcw5r6tz4zfilc3ezibk.jpg'}
-                                alt="Picture of the author"
-                                width={200}
-                                height={200}
-                            />
-                        </div>
-                        <div>
-                            <img
-                                src={'https://res.cloudinary.com/sunshinevege/image/upload/v1643353185/webstore/sldtmfmw8hwjhpmtr8iv.png'}
-                                alt="Picture of the author"
-                                width={200}
-                                height={200}
-                            />
-                        </div>
-                        <div>
-                            <img
-                                src={'https://res.cloudinary.com/sunshinevege/image/upload/v1643286381/webstore/ropui20nehuur99hizzx.jpg'}
-                                alt="Picture of the author"
-                                width={200}
-                                height={200}
-                            />
-                        </div>
-                        <div>
-                            <img
-                                src={data.data[props.productId].imageUrl}
-                                alt="Picture of the author"
-                                width={200}
-                                height={200}
-                            />
-                        </div>
-                    </Carousel>}
-                >
-                    <Meta title="Europe Street beat" description="www.instagram.com" />
-                </Card>
+                <Link href='1'>
+                    <Card
+                        hoverable
+                        style={{ width: 200 }}
+                        cover={<Carousel beforeChange={(a)=>onChange(a)}>
+                            <div>
+                                <img
+                                    src={'https://res.cloudinary.com/sunshinevege/image/upload/v1643355101/webstore/gcw5r6tz4zfilc3ezibk.jpg'}
+                                    alt="Picture of the author"
+                                    width={200}
+                                    height={200}
+                                />
+                            </div>
+                            <div>
+                                <img
+                                    src={'https://res.cloudinary.com/sunshinevege/image/upload/v1643353185/webstore/sldtmfmw8hwjhpmtr8iv.png'}
+                                    alt="Picture of the author"
+                                    width={200}
+                                    height={200}
+                                />
+                            </div>
+                            <div>
+                                <img
+                                    src={'https://res.cloudinary.com/sunshinevege/image/upload/v1643286381/webstore/ropui20nehuur99hizzx.jpg'}
+                                    alt="Picture of the author"
+                                    width={200}
+                                    height={200}
+                                />
+                            </div>
+                            <div>
+                                <img
+                                    src={data.data[props.productId].imageUrl}
+                                    alt="Picture of the author"
+                                    width={200}
+                                    height={200}
+                                />
+                            </div>
+                        </Carousel>}
+                    >
+                        <Meta title={data.data[props.productId].name} description="www.instagram.com" />
+                    </Card>
+                </Link>
 
 
                 <h1 className={styles.title}>
