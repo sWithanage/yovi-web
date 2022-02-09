@@ -20,12 +20,6 @@ export default function SeoContent({ title, description , image, keywords  }) {
                 <meta property="twitter:image" content={image}/>
 
                 <meta name="keywords" content={keywords}/>
-
-                <meta name="robots" content="index, follow"/>
-                <meta httpEquiv="Content-Type" content="text/html; charset=utf-8"/>
-                <meta name="language" content="English"/>
-                <meta name="revisit-after" content="7 days"/>
-                <meta name="author" content="Expergen"/>
         </>
     )
 }
