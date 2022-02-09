@@ -1,6 +1,12 @@
 import {useEffect, useState} from "react";
 
-export const setImageDimensions = (url, height, width, quality) => url.split("upload/")[0]+"upload/w_"+width+",h_"+height+",q_"+quality+"/"+url.split("upload/")[1];
+export const setImageDimensions = (url, height, width, quality) => {
+    if(url.includes('cloudinary')) {
+        return url.split("upload/")[0] + "upload/w_" + width + ",h_" + height + ",q_" + quality + "/" + url.split("upload/")[1];
+    } else {
+        return url;
+    }
+};
 
 
 
