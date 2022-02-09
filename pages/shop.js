@@ -1,6 +1,5 @@
 import Head from "next/head";
 import {BASE_URL} from "../common/Constants";
-import SeoContent from "../common/SeoContent";
 import {useWindowSize} from "../common/Common";
 import styles from '../styles/Home.module.css';
 import ProductCarousel from "../common/ProductCarousel";
