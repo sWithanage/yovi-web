@@ -1,7 +1,7 @@
 import styles from '../../styles/Home.module.css'
 import Image from 'next/image';
 import {Component} from "react";
-import SeoContent from "../../utils/SeoContent";
+import SeoContent from "../../common/SeoContent";
 
 const myLoader = ({ src, width, quality }) => {
     return `https://reqres.in/img/faces/2-image.jpg`

@@ -2,24 +2,11 @@ import styles from '../../styles/Home.module.css'
 import Head from "next/head";
 import { Image } from 'antd';
 import Link from 'next/link';
-import SeoContent from "../../utils/SeoContent";
-import { Carousel } from 'antd';
-import { Card } from 'antd';
-const { Meta } = Card;
+import SeoContent from "../../common/SeoContent";
+import ProductCarousel from "../../common/ProductCarousel";
 
 function Product({props}) {
     const data = JSON.parse(props.data);
-    function onChange(a) {
-        console.log(a);
-    }
-
-    const contentStyle = {
-        height: '350px',
-        color: '#fff',
-        lineHeight: '160px',
-        textAlign: 'center',
-        background: '#364d79',
-    };
 
 
     return (
@@ -34,89 +21,16 @@ function Product({props}) {
             </Head>
 
             <main className={styles.main}>
-
-                <Link href='1'>
-                    <Card
-                        hoverable
-                        style={{ width: 200, borderRadius: 10 }}
-                        cover={<Carousel beforeChange={(a)=>onChange(a)} style={{padding: 10}}>
-                            <div>
-                                <img
-                                    src={'https://www.yovi.lk/wp-content/uploads/2022/01/161733965923344d0131b9a0a7f2a65f3560e88445_thumbnail_900x.jpg'}
-                                    alt="Picture of the author"
-                                    width={200}
-                                    height={200}
-                                />
-                            </div>
-                            <div>
-                                <img
-                                    src={'https://www.yovi.lk/wp-content/uploads/2022/01/1617339664b77a36635498bab23e7b90398656c366_thumbnail_900x.webp'}
-                                    alt="Picture of the author"
-                                    width={200}
-                                    height={200}
-                                />
-                            </div>
-                            <div>
-                                <img
-                                    src={'https://www.yovi.lk/wp-content/uploads/2022/01/161733966128a1b9f299df0a10188e9c36579fbdd9_thumbnail_900x.webp'}
-                                    alt="Picture of the author"
-                                    width={200}
-                                    height={200}
-                                />
-                            </div>
-                            <div>
-                                <img
-                                    src={'https://www.yovi.lk/wp-content/uploads/2022/01/161733966949bd692e8ca847d816ce50ae8ae841e5_thumbnail_900x.webp'}
-                                    alt="Picture of the author"
-                                    width={200}
-                                    height={200}
-                                />
-                            </div>
-                        </Carousel>}
-                    >
-                        <Meta title={data.data[props.productId].name} description="www.instagram.com" />
-                    </Card>
-                </Link>
-
-
-                <h1 className={styles.title}>
-                    Hello {data.data[props.productId].name}
-                </h1>
-
-                <Image
-                    src={data.data[props.productId].imageUrl}
-                    alt="Picture of the author"
-                    width={200}
-                    height={200}
+                <ProductCarousel
+                    price={2500}
+                    title={"Cute Looking Red Dress Though"}
+                    imageList={[
+                        'https://res.cloudinary.com/sunshinevege/image/upload/v1643353185/webstore/sldtmfmw8hwjhpmtr8iv.png',
+                        'https://res.cloudinary.com/sunshinevege/image/upload/v1643355101/webstore/gcw5r6tz4zfilc3ezibk.jpg',
+                        'https://res.cloudinary.com/sunshinevege/image/upload/v1643286381/webstore/ropui20nehuur99hizzx.jpg'
+                    ]}
+                    pathToRedirect={'1'}
                 />
-
-                <Link href='1'>
-                    <a>1</a>
-                </Link>
-                <Link href='2'>
-                    <a>2</a>
-                </Link>
-                <Link href='3'>
-                    <a>3</a>
-                </Link>
-                <Link href='4'>
-                    <a>4</a>
-                </Link>
-                <Link href='5'>
-                    <a>5</a>
-                </Link>
-                <Link href='6'>
-                    <a>6</a>
-                </Link>
-                <Link href='7'>
-                    <a>7</a>
-                </Link>
-                <Link href='8'>
-                    <a>8</a>
-                </Link>
-                <Link href='9'>
-                    <a>9</a>
-                </Link>
             </main>
         </div>
     )

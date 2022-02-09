@@ -1,0 +1,1 @@
+export const setImageDimensions = (url, height, width, quality) => url.split("upload/")[0]+"upload/w_"+width+",h_"+height+",q_"+quality+"/"+url.split("upload/")[1];
