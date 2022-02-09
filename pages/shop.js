@@ -17,7 +17,7 @@ function Shop({props}) {
     const size = useWindowSize();
     let widthOfEach = 200;
     if(size?.width < 480 ) {
-        widthOfEach = Math.round(size.width / 2 - 50);
+        widthOfEach = Math.round(size.width / 2 - 26);
     } else if (size?.width < 740 ) {
         widthOfEach = Math.round(size.width / 4 - 26);
     } else {
