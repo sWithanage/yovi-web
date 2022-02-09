@@ -1,5 +1,4 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
-
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 class MyDocument extends Document {
 
     render() {
@@ -7,7 +6,6 @@ class MyDocument extends Document {
             <Html lang={'eng'}>
                 <Head>
                     <link rel="icon" href="/favicon.ico" />
-
                 </Head>
                 <body>
                 <Main />
