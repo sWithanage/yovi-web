@@ -23,6 +23,7 @@ export default function ProductCarousel({ imageList, title, sellingPrice, discou
                                             height={widthAndHeight*1.3}
                                             style={{borderRadius: 10, margin: 10}}
                                             importance={'low'}
+                                            placeholder={'https://i.pinimg.com/originals/0f/06/46/0f0646145a0721be678157b56aa37a9d.gif'}
                                         />
                                     </div>
 
