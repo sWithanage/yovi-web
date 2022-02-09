@@ -2,19 +2,11 @@ import styles from '../../styles/Home.module.css'
 import Head from "next/head";
 import Image from 'next/image';
 import Link from 'next/link';
-import NextNProgress from "nextjs-progressbar";
 
 function Product({props}) {
     const data = JSON.parse(props.data);
     return (
         <div className={styles.container}>
-            <NextNProgress
-                color="#29D"
-                startPosition={0.3}
-                stopDelayMs={200}
-                height={3}
-                showOnShallow={true}
-            />
             <Head>
                 <title>{data.data[props.productId].name} {data.data[props.productId].name}  - YOVI Clothing</title>
                 <meta name="description" content={data.data[props.productId].name} />
