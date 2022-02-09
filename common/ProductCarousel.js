@@ -3,15 +3,13 @@ import Link from "next/link";
 import {setImageDimensions} from "./Common";
 const { Meta } = Card;
 
-export default function ProductCarousel({ imageList, title, sellingPrice, discountedPrice, pathToRedirect }) {
-    const widthAndHeight = 200;
-
+export default function ProductCarousel({ imageList, title, sellingPrice, discountedPrice, pathToRedirect, widthAndHeight=200 }) {
     return (
         <>
             <Link href={pathToRedirect}>
                 <Card
                     hoverable
-                    style={{ width: widthAndHeight, borderRadius: 10 }}
+                    style={{ width: widthAndHeight, borderRadius: 10, float: 'left', margin: 5 }}
                     bodyStyle={{padding: 10}}
                     cover={
                         <Carousel style={{padding: 5}}>
@@ -22,6 +20,7 @@ export default function ProductCarousel({ imageList, title, sellingPrice, discou
                                             alt={image?.alt}
                                             width={widthAndHeight}
                                             height={widthAndHeight}
+                                            style={{ borderRadius: 10 }}
                                         />
                                     </div>
                                 }
