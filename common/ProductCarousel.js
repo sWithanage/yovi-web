@@ -3,8 +3,8 @@ import Link from "next/link";
 import {setImageDimensions} from "./Common";
 const { Meta } = Card;
 
-export default function ProductCarousel({ imageList, title, price, pathToRedirect }) {
-    const widthAndHeight = 300;
+export default function ProductCarousel({ imageList, title, sellingPrice, discountedPrice, pathToRedirect }) {
+    const widthAndHeight = 200;
 
     return (
         <>
@@ -18,8 +18,8 @@ export default function ProductCarousel({ imageList, title, price, pathToRedirec
                             {imageList.map((image, index)=> {
                                 return <div key={index}>
                                         <img
-                                            src={setImageDimensions(image, widthAndHeight, widthAndHeight, 70)}
-                                            alt="Picture of the author"
+                                            src={setImageDimensions(image?.imageUrl, widthAndHeight, widthAndHeight, 70)}
+                                            alt={image?.alt}
                                             width={widthAndHeight}
                                             height={widthAndHeight}
                                         />
@@ -29,7 +29,7 @@ export default function ProductCarousel({ imageList, title, price, pathToRedirec
                         </Carousel>
                     }
                 >
-                        <Meta title={price} description={title} />
+                        <Meta title={"Rs. "+sellingPrice} description={title} />
                 </Card>
             </Link>
         </>

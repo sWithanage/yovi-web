@@ -1,50 +1,50 @@
 import styles from '../../styles/Home.module.css'
 import Head from "next/head";
-import { Image } from 'antd';
-import Link from 'next/link';
 import SeoContent from "../../common/SeoContent";
 import ProductCarousel from "../../common/ProductCarousel";
+import {BASE_URL} from "../../common/Constants";
 
 function Product({props}) {
-    const data = JSON.parse(props.data);
-
-
+    const data = props.data;
+    console.log(data);
     return (
         <div className={styles.container}>
             <Head>
                 <SeoContent
-                    title={data.data[props.productId].name}
-                    description={data.data[props.productId].name + "Description is here"}
-                    image={data.data[props.productId].imageUrl}
+                    title={"Store Page"}
+                    description={"Description is here"}
+                    image={"https://res.cloudinary.com/sunshinevege/image/upload/v1643353185/webstore/sldtmfmw8hwjhpmtr8iv.png"}
                     keywords={'Sasa'}
                 />
             </Head>
 
             <main className={styles.main}>
-                <ProductCarousel
-                    price={2500}
-                    title={"Cute Looking Red Dress Though"}
-                    imageList={[
-                        'https://res.cloudinary.com/sunshinevege/image/upload/v1643353185/webstore/sldtmfmw8hwjhpmtr8iv.png',
-                        'https://res.cloudinary.com/sunshinevege/image/upload/v1643355101/webstore/gcw5r6tz4zfilc3ezibk.jpg',
-                        'https://res.cloudinary.com/sunshinevege/image/upload/v1643286381/webstore/ropui20nehuur99hizzx.jpg'
-                    ]}
-                    pathToRedirect={'1'}
-                />
+                {props?.data?.data?.map((value, index) => {
+                    return <ProductCarousel
+                        sellingPrice={value?.price || 0}
+                        discountedPrice={value?.discountedPrice || 0}
+                        title={value?.name}
+                        imageList={value?.images}
+                        pathToRedirect={'1'}
+                        key={index}
+                    />
+                })}
+
             </main>
         </div>
     )
 }
 
-Product.getInitialProps = async (ctx) => {
-    const res = await fetch(`https://sun-shinevege-mart.herokuapp.com/api/item`)
+Product.getInitialProps = async (params) => {
+    const res = await fetch(`${BASE_URL}product?pageId=3`)
     const data = await res.json()
+    console.log(data);
     return {
         props: {
-            productId: ctx.query.productId,
-            data: JSON.stringify(data)
+            productId: params.query.productId,
+            data: data
         }
     }
 }
 
-export default Product
+export default Product;
