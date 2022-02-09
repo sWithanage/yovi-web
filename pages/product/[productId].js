@@ -38,11 +38,11 @@ function Product({props}) {
                 <Link href='1'>
                     <Card
                         hoverable
-                        style={{ width: 200 }}
-                        cover={<Carousel beforeChange={(a)=>onChange(a)}>
+                        style={{ width: 200, borderRadius: 10 }}
+                        cover={<Carousel beforeChange={(a)=>onChange(a)} style={{padding: 10}}>
                             <div>
                                 <img
-                                    src={'https://res.cloudinary.com/sunshinevege/image/upload/v1643355101/webstore/gcw5r6tz4zfilc3ezibk.jpg'}
+                                    src={'https://www.yovi.lk/wp-content/uploads/2022/01/161733965923344d0131b9a0a7f2a65f3560e88445_thumbnail_900x.jpg'}
                                     alt="Picture of the author"
                                     width={200}
                                     height={200}
@@ -50,7 +50,7 @@ function Product({props}) {
                             </div>
                             <div>
                                 <img
-                                    src={'https://res.cloudinary.com/sunshinevege/image/upload/v1643353185/webstore/sldtmfmw8hwjhpmtr8iv.png'}
+                                    src={'https://www.yovi.lk/wp-content/uploads/2022/01/1617339664b77a36635498bab23e7b90398656c366_thumbnail_900x.webp'}
                                     alt="Picture of the author"
                                     width={200}
                                     height={200}
@@ -58,7 +58,7 @@ function Product({props}) {
                             </div>
                             <div>
                                 <img
-                                    src={'https://res.cloudinary.com/sunshinevege/image/upload/v1643286381/webstore/ropui20nehuur99hizzx.jpg'}
+                                    src={'https://www.yovi.lk/wp-content/uploads/2022/01/161733966128a1b9f299df0a10188e9c36579fbdd9_thumbnail_900x.webp'}
                                     alt="Picture of the author"
                                     width={200}
                                     height={200}
@@ -66,7 +66,7 @@ function Product({props}) {
                             </div>
                             <div>
                                 <img
-                                    src={data.data[props.productId].imageUrl}
+                                    src={'https://www.yovi.lk/wp-content/uploads/2022/01/161733966949bd692e8ca847d816ce50ae8ae841e5_thumbnail_900x.webp'}
                                     alt="Picture of the author"
                                     width={200}
                                     height={200}
