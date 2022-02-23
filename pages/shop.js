@@ -7,10 +7,10 @@ import ProductCarousel from "../common/ProductCarousel";
 function Shop({props}) {
     const seo = {
         title: "Shop - YOVI Clothing",
-        description: "",
-        image: "",
+        description: "This is YOVI shopping for all the women Sri Lanka. ",
+        image: "https://www.yovi.lk/wp-content/uploads/2022/01/2.jpg",
         twitterImage: "",
-        keywords: "",
+        keywords: "shop,Yovi,clothing",
         url: "https://www.yovi.lk/shop"
     }
 

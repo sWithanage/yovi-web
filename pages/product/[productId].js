@@ -11,27 +11,31 @@ function Product({props}) {
     if(size?.width < 480 ){
         widthOfEach = Math.round(size.width / 2 - (5*3));
     }
+    const seo = {
+        title: "Products Page - YOVI Clothing",
+        description: "This is YOVI shopping for all the women Sri Lanka. ",
+        image: "https://www.yovi.lk/wp-content/uploads/2022/01/2.jpg",
+        twitterImage: "",
+        keywords: "shop,Yovi,clothing",
+        url: "https://www.yovi.lk/shop"
+    }
 
     return (
         <div className={styles.container}>
             <Head>
-                {/*<title>{title} - YOVI Clothing</title>*/}
-                {/*<meta name="description" content={description} />*/}
-                {/*<meta name="description" content={description}/>*/}
-                {/*<meta property="og:type" content="website"/>*/}
-
-                {/*<meta property="og:url" content="https://yovi.vercel.app/productVege/1"/>*/}
-                {/*<meta property="og:title" content={title}/>*/}
-                {/*<meta property="og:description" content={description}/>*/}
-                {/*<meta property="og:image" content={image}/>*/}
-                {/*<meta property="twitter:card" content="summary_large_image"/>*/}
-
-                {/*<meta property="twitter:url" content="https://yovi.vercel.app/productVege/1"/>*/}
-                {/*<meta property="twitter:title" content={title}/>*/}
-                {/*<meta property="twitter:description" content={description}/>*/}
-                {/*<meta property="twitter:image" content={image}/>*/}
-
-                {/*<meta name="keywords" content={keywords}/>*/}
+                <title>{seo.title}</title>
+                <meta name="description" content={seo.description} />
+                <meta property="og:type" content="website"/>
+                <meta property="og:url" content="https://yovi.vercel.app/productVege/1"/>
+                <meta property="og:title" content={seo.title}/>
+                <meta property="og:description" content={seo.description}/>
+                <meta property="og:image" content={seo.image}/>
+                <meta property="twitter:card" content="summary_large_image"/>
+                <meta property="twitter:url" content="https://yovi.vercel.app/productVege/1"/>
+                <meta property="twitter:title" content={seo.title}/>
+                <meta property="twitter:description" content={seo.description}/>
+                <meta property="twitter:image" content={seo.image}/>
+                <meta name="keywords" content={seo.keywords}/>
             </Head>
 
             <main className={styles.main}>
