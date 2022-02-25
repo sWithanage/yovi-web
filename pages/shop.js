@@ -52,6 +52,7 @@ function Shop({props}) {
                             pathToRedirect={`product/${value?.slug}`}
                             key={index}
                             widthAndHeight={widthOfEach}
+                            index={index}
                         />
                     })}
                 </main>

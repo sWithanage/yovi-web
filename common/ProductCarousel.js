@@ -4,7 +4,7 @@ import {setImageDimensions} from "./Common";
 const { Meta } = Card;
 import { SimpleImg } from 'react-simple-img';
 
-export default function ProductCarousel({ imageList, title, sellingPrice, discountedPrice, pathToRedirect, widthAndHeight=200 }) {
+export default function ProductCarousel({ imageList, title, sellingPrice, discountedPrice, pathToRedirect,index, widthAndHeight=200 }) {
     return (
         <>
             <Link href={pathToRedirect}>
@@ -15,15 +15,16 @@ export default function ProductCarousel({ imageList, title, sellingPrice, discou
                     cover={
                         <Carousel>
                             {imageList.map((image, index)=> {
+                                console.log(index);
                                 return <div key={index}>
                                         <SimpleImg
                                             src={setImageDimensions(image?.imageUrl, Math.round(widthAndHeight*1.3), widthAndHeight, 70)}
                                             alt={image?.alt}
                                             width={widthAndHeight}
                                             height={widthAndHeight*1.3}
-                                            style={{borderRadius: 10, margin: 10}}
-                                            importance={'low'}
-                                            placeholder={'https://i.pinimg.com/originals/0f/06/46/0f0646145a0721be678157b56aa37a9d.gif'}
+                                            style={{borderRadius: 0, margin: 0}}
+                                            importance={index === 0 ? 'auto' : 'low'}
+                                            placeholder={'https://c.tenor.com/Prsb5xSwfQYAAAAM/claire-dancing.gif'}
                                         />
                                     </div>
 
