@@ -15,7 +15,6 @@ export default function ProductCarousel({ imageList, title, sellingPrice, discou
                     cover={
                         <Carousel>
                             {imageList.map((image, index)=> {
-                                console.log(index);
                                 return <div key={index}>
                                         <SimpleImg
                                             src={setImageDimensions(image?.imageUrl, Math.round(widthAndHeight*1.3), widthAndHeight, 70)}
